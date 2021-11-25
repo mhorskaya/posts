@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Posts.Configuration;
 using Posts.Model;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Posts.Consume
 {
@@ -20,9 +20,9 @@ namespace Posts.Consume
 
         public async Task<IEnumerable<Post>> ConsumeAsync()
         {
-            var response = await _client.GetStringAsync(_config.EndpointUrl);
-
-            return JsonConvert.DeserializeObject<IEnumerable<Post>>(response);
+            var response = await _client.GetAsync(_config.EndpointUrl);
+            var body = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<IEnumerable<Post>>(body);
         }
     }
 }

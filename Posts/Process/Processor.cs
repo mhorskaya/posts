@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Posts.Consume;
 using Posts.Filter;
@@ -36,7 +37,7 @@ namespace Posts.Process
 
             if (!_queryOptions.QueryAll)
             {
-                posts = _filterer.Filter(posts, _queryOptions.Ids);
+                posts = _filterer.Filter(posts, _queryOptions.Ids).ToList();
                 _logger.Info($"Query filter has been applied with ids: {string.Join(",", _queryOptions.Ids)}");
             }
 

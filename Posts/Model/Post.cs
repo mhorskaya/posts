@@ -1,6 +1,6 @@
 ﻿namespace Posts.Model
 {
-    public class Post
+    public record Post
     {
         public int UserId { get; set; }
         public int Id { get; set; }

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Posts": {
+      "commandName": "Project",
+      "commandLineArgs": " --query 10,20 --output C:\\Users\\mhors\\Desktop\\data.json --format"
+    }
+  }
+}

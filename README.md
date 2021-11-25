@@ -1,7 +1,7 @@
 ## posts
 
 This repository includes a command line application that:
-* consumes JSON data from a remote API endpoint which defined in a configuration file. (appSettings.json)
+* consumes JSON data from a remote API endpoint which is defined in a configuration file. (appSettings.json)
 * applies filter to the results specified with the --query flag.
 * outputs results in JSON.
 

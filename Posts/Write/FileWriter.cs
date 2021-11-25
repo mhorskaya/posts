@@ -1,11 +1,11 @@
-﻿using Posts.Logger;
-using Posts.Options;
-using System;
+﻿using System;
 using System.IO;
+using Posts.Logging;
+using Posts.Option;
 
-namespace Posts.Writer
+namespace Posts.Write
 {
-    internal class FileWriter : IWriter<string>
+    public class FileWriter : IWriter<string>
     {
         private readonly IOptions _options;
         private readonly ILogger _logger;

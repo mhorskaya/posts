@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Posts.Writer
+namespace Posts.Write
 {
-    internal class ConsoleWriter : IWriter<string>
+    public class ConsoleWriter : IWriter<string>
     {
         public void Write(string data)
         {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Posts.Filterer;
-using Posts.Models;
+using Posts.Filter;
+using Posts.Model;
 using Xunit;
 
 namespace Posts.Tests
@@ -12,7 +12,7 @@ namespace Posts.Tests
 
         public FiltererTest()
         {
-            _filterer = new Filterer.Filterer();
+            _filterer = new Filterer();
         }
 
         [Fact]

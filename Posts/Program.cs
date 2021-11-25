@@ -1,25 +1,26 @@
-﻿using CommandLine;
+﻿using System;
+using System.Net.Http;
+using CommandLine;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Posts.Config;
-using Posts.Consumer;
-using Posts.Filterer;
-using Posts.Logger;
-using Posts.Models;
-using Posts.Options;
-using Posts.Writer;
-using System;
-using System.Net.Http;
+using Posts.Configuration;
+using Posts.Consume;
+using Posts.Filter;
+using Posts.Logging;
+using Posts.Model;
+using Posts.Option;
+using Posts.Process;
+using Posts.Write;
 
 namespace Posts
 {
-    internal class Program
+    public class Program
     {
         private const int InvalidCommandLineArgumentExitCode = -1;
 
         private static void Main(string[] args)
         {
-            Parser.Default.ParseArguments<Options.Options>(args).WithParsed(options =>
+            Parser.Default.ParseArguments<Options>(args).WithParsed(options =>
             {
                 IQueryOptions queryOptions;
 
@@ -34,7 +35,7 @@ namespace Posts
                     return;
                 }
 
-                BuildServiceProvider(options, queryOptions).GetService<Processor.Processor>()?.ProcessAsync().GetAwaiter().GetResult();
+                BuildServiceProvider(options, queryOptions).GetService<Processor>()?.ProcessAsync().GetAwaiter().GetResult();
             });
         }
 
@@ -49,12 +50,12 @@ namespace Posts
 
             collection.AddSingleton(options);
             collection.AddSingleton(queryOptions);
-            collection.AddSingleton<IConfig>(BuildConfiguration().Get<Config.Config>());
-            collection.AddTransient<ILogger, Logger.Logger>();
-            collection.AddTransient<IConsumer<Post>, Consumer.Consumer>();
-            collection.AddTransient<IFilterer<Post>, Filterer.Filterer>();
+            collection.AddSingleton<IConfig>(BuildConfiguration().Get<Config>());
+            collection.AddTransient<ILogger, Logger>();
+            collection.AddTransient<IConsumer<Post>, Consumer>();
+            collection.AddTransient<IFilterer<Post>, Filterer>();
             collection.AddSingleton<HttpClient>();
-            collection.AddSingleton<Processor.Processor>();
+            collection.AddSingleton<Processor>();
 
             if (string.IsNullOrEmpty(options.OutputFilePath))
             {

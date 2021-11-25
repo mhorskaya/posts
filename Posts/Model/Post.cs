@@ -1,4 +1,4 @@
-﻿namespace Posts.Models
+﻿namespace Posts.Model
 {
     public class Post
     {

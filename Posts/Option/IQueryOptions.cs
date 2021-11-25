@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Posts.Options
+namespace Posts.Option
 {
-    internal interface IQueryOptions
+    public interface IQueryOptions
     {
         bool QueryAll { get; }
         IEnumerable<int> Ids { get; }

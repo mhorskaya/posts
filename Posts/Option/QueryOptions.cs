@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Posts.Options
+namespace Posts.Option
 {
-    internal class QueryOptions : IQueryOptions
+    public class QueryOptions : IQueryOptions
     {
         public bool QueryAll { get; set; }
         public IEnumerable<int> Ids { get; set; }

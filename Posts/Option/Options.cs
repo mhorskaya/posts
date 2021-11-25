@@ -1,8 +1,8 @@
 ﻿using CommandLine;
 
-namespace Posts.Options
+namespace Posts.Option
 {
-    internal class Options : IOptions
+    public class Options : IOptions
     {
         [Option('q', "query", Required = true, HelpText = "The query text (all | <comma_separated_numbers>)")]
         public string Query { get; set; }

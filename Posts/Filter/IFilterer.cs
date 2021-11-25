@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Posts.Filterer
+namespace Posts.Filter
 {
     public interface IFilterer<T>
     {

@@ -1,6 +1,6 @@
-﻿namespace Posts.Options
+﻿namespace Posts.Option
 {
-    internal interface IOptions
+    public interface IOptions
     {
         string Query { get; }
         string OutputFilePath { get; }

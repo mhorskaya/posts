@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Posts.Logger
+namespace Posts.Logging
 {
-    internal class Logger : ILogger
+    public class Logger : ILogger
     {
         public void Info(string message)
         {

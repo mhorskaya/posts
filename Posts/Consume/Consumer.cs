@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using Posts.Config;
-using Posts.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Posts.Configuration;
+using Posts.Model;
 
-namespace Posts.Consumer
+namespace Posts.Consume
 {
-    internal class Consumer : IConsumer<Post>
+    public class Consumer : IConsumer<Post>
     {
         private readonly HttpClient _client;
         private readonly IConfig _config;

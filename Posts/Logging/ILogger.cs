@@ -1,6 +1,6 @@
-﻿namespace Posts.Logger
+﻿namespace Posts.Logging
 {
-    internal interface ILogger
+    public interface ILogger
     {
         void Info(string message);
 

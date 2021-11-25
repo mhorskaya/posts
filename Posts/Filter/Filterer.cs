@@ -1,8 +1,8 @@
-﻿using Posts.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Posts.Model;
 
-namespace Posts.Filterer
+namespace Posts.Filter
 {
     public class Filterer : IFilterer<Post>
     {

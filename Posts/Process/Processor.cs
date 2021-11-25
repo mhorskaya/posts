@@ -1,15 +1,15 @@
-﻿using Newtonsoft.Json;
-using Posts.Consumer;
-using Posts.Filterer;
-using Posts.Logger;
-using Posts.Models;
-using Posts.Options;
-using Posts.Writer;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Posts.Consume;
+using Posts.Filter;
+using Posts.Logging;
+using Posts.Model;
+using Posts.Option;
+using Posts.Write;
 
-namespace Posts.Processor
+namespace Posts.Process
 {
-    internal class Processor
+    public class Processor
     {
         private readonly IConsumer<Post> _consumer;
         private readonly IFilterer<Post> _filterer;
